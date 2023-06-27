@@ -5,6 +5,10 @@ import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 
 import Card from "../UI/Card";
+const deleteButton = (e) => {
+  let item = e.target.parentElement;
+  item.remove();
+};
 
 const ExpenseItems = (props) => {
   return (
@@ -15,10 +19,11 @@ const ExpenseItems = (props) => {
         <h2>{props.name}</h2>
 
         <ExpenseDetails
-          amount={props.amount}
           LocationOfExpenditure={props.LocationOfExpenditure}
+          amount={props.amount}
         ></ExpenseDetails>
       </div>
+      <button onClick={deleteButton}>Delete Expense</button>
     </Card>
   );
 };
