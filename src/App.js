@@ -1,49 +1,46 @@
 // import ExpenseItems from "./components/ExpenseItems";when we use maps
 // import React from 'react'; if we write code in react object
 
+import { useState } from "react";
 import Expenses from "./components/ExpenseList/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
 const App = () => {
-  const expensesData = [
+  const dummyExpenses = [
     {
       id: "el",
-      name: "Food",
+      title: "Food",
       amount: 500,
       date: new Date(2022, 7, 15),
-      LocationOfExpenditure: "Restaurent dhule",
+      // LocationOfExpenditure: "Restaurent Hyd",
     },
     {
       id: "bl",
-      name: "Shopping",
+      title: "Shopping",
       amount: 5000,
       date: new Date(2022, 10, 12),
-      LocationOfExpenditure: "Trends",
+      // LocationOfExpenditure: "Trends",
     },
     {
       id: "ml",
-      name: "Movie",
+      title: "Movie",
       amount: 1000,
       date: new Date(2022, 6, 13),
-      LocationOfExpenditure: "Imax Nasik",
+      // LocationOfExpenditure: "Imax Hyd",
     },
     {
       id: "cl",
-      name: "Tour",
+      title: "Tour",
       amount: 20000,
       date: new Date(2022, 4, 12),
-      LocationOfExpenditure: "gao trip",
-    },
-    {
-      id: "dl",
-      name: "voccation",
-      amount: 30000,
-      date: new Date(2022, 6, 12),
-      LocationOfExpenditure: "Germany",
+      // LocationOfExpenditure: "goa trip",
     },
   ];
+  const [expenseList, setExpenseList] = useState(dummyExpenses);
   const addExpenseHandler = (expense) => {
-    console.log("this is App.js");
-    console.log(expense);
+    console.log(expense, "in app.js new expenses");
+    setExpenseList((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
   };
 
   return (
@@ -52,7 +49,7 @@ const App = () => {
       <h2>ExpenseItems Details</h2>
 
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses expenses={expensesData} />
+      <Expenses expenses={dummyExpenses} />
     </div>
   );
 };
