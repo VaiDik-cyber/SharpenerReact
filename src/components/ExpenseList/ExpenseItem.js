@@ -5,7 +5,6 @@ import ExpenseDate from "./ExpenseDate";
 import ExpenseDetails from "./ExpenseDetails";
 
 import Card from "../UI/Card";
-import { useState } from "react";
 
 const ExpenseItems = (props) => {
   const deleteButton = (e) => {

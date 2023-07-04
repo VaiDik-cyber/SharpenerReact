@@ -24,15 +24,21 @@ const App = () => {
       id: "ml",
       title: "Movie",
       amount: 1000,
-      date: new Date(2022, 6, 13),
+      date: new Date(2021, 6, 13),
       // LocationOfExpenditure: "Imax Hyd",
     },
     {
       id: "cl",
       title: "Tour",
       amount: 20000,
-      date: new Date(2022, 4, 12),
+      date: new Date(2020, 4, 12),
       // LocationOfExpenditure: "goa trip",
+    },
+    {
+      id: "xl",
+      title: "Dinner",
+      amount: 1200,
+      date: new Date(2021, 8, 12),
     },
   ];
   const [expenseList, setExpenseList] = useState(dummyExpenses);
@@ -45,11 +51,8 @@ const App = () => {
 
   return (
     <div>
-      <h1>let's start</h1>
-      <h2>ExpenseItems Details</h2>
-
       <NewExpense onAddExpense={addExpenseHandler} />
-      <Expenses expenses={dummyExpenses} />
+      <Expenses items={expenseList} />
     </div>
   );
 };
