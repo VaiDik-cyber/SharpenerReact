@@ -2,7 +2,7 @@
 // import React from 'react'; if we write code in react object
 
 import Expenses from "./components/ExpenseList/Expenses";
-import NewExpense from "./components/ExpenseList/NewExpense";
+import NewExpense from "./components/NewExpense/NewExpense";
 const App = () => {
   const expensesData = [
     {
