@@ -41,18 +41,18 @@ const App = () => {
       LocationOfExpenditure: "Germany",
     },
   ];
+  const addExpenseHandler = (expense) => {
+    console.log("this is App.js");
+    console.log(expense);
+  };
 
   return (
     <div>
       <h1>let's start</h1>
       <h2>ExpenseItems Details</h2>
-      {/* {expenses.map((any) => (
-        <ExpenseItems data={any}></ExpenseItems>
-      ))} */}
-      <NewExpense />
+
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses expenses={expensesData} />
-      {/* return React.createElement('div',{},
-  React.createElement(Expenses,{items:expenses})); react object code */}
     </div>
   );
 };
