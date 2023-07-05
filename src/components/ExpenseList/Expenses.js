@@ -17,7 +17,7 @@ const Expenses = (props) => {
     <p style={{ color: "whitesmoke" }}>No exepense found.</p>
   );
 
-  if (filteredExpenses.length > 0) {
+  if (filteredExpenses.length > 1) {
     expenseContent = filteredExpenses.map((expense) => (
       <ExpenseItem
         key={expense.id}
@@ -26,6 +26,22 @@ const Expenses = (props) => {
         date={expense.date}
       ></ExpenseItem>
     ));
+  } else if (filteredExpenses.length === 1) {
+    expenseContent = (
+      <div>
+        {filteredExpenses.map((expense) => (
+          <ExpenseItem
+            key={expense.id}
+            name={expense.title}
+            amount={expense.amount}
+            date={expense.date}
+          ></ExpenseItem>
+        ))}
+        <p style={{ color: "whitesmoke" }}>
+          Only single Expense here. Please add more...
+        </p>
+      </div>
+    );
   }
   return (
     <Card className="expenses">
