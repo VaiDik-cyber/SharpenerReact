@@ -1,8 +1,9 @@
 import "./Expenses.css";
-import ExpenseItem from "./ExpenseItem";
+// import ExpenseItem from "./ExpenseItem";
 import Card from "../UI/Card";
 import ExpensesFilter from "./ExpenseFilter";
 import { useState } from "react";
+import ExpensesList from "./ExpenseList";
 
 const Expenses = (props) => {
   const [filteredYear, setFilteredYear] = useState("2020");
@@ -13,36 +14,36 @@ const Expenses = (props) => {
   const filteredExpenses = props.items.filter((expense) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
-  let expenseContent = (
-    <p style={{ color: "whitesmoke" }}>No exepense found.</p>
-  );
-  let filteritem = filteredExpenses.map((expense) => (
-    <ExpenseItem
-      key={expense.id}
-      name={expense.title}
-      amount={expense.amount}
-      date={expense.date}
-    ></ExpenseItem>
-  ));
-  if (filteredExpenses.length > 1) {
-    expenseContent = { filteritem };
-  } else if (filteredExpenses.length === 1) {
-    expenseContent = (
-      <>
-        {filteritem}
-        <p style={{ color: "whitesmoke" }}>
-          Only single Expense here. Please add more...
-        </p>
-      </>
-    );
-  }
+  // let expenseContent = (
+  //   <p style={{ color: "whitesmoke" }}>No exepense found.</p>
+  // );
+  // let filteritem = filteredExpenses.map((expense) => (
+  //   <ExpenseItem
+  //     key={expense.id}
+  //     name={expense.title}
+  //     amount={expense.amount}
+  //     date={expense.date}
+  //   ></ExpenseItem>
+  // ));
+  // if (filteredExpenses.length > 1) {
+  //   expenseContent = { filteritem };
+  // } else if (filteredExpenses.length === 1) {
+  //   expenseContent = (
+  //     <>
+  //       {filteritem}
+  //       <p style={{ color: "whitesmoke" }}>
+  //         Only single Expense here. Please add more...
+  //       </p>
+  //     </>
+  //   );
+  // }
   return (
     <Card className="expenses">
       <ExpensesFilter
         selected={filteredYear}
         onChangeFilter={filterChangeHandler}
       />
-      {expenseContent}
+      <ExpensesList items={filteredExpenses} />
     </Card>
   );
 };
